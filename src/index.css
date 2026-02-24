@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0284c7; /* sky-600 */
+  --color-background-light: #38bdf8; /* sky-400 */
+  --color-background-dark: #38bdf8;
+  --color-surface-light: rgba(255, 255, 255, 0.2);
+  --color-surface-dark: rgba(255, 255, 255, 0.2);
+  --font-display: "Noto Sans SC", sans-serif;
+  --font-sans: "Noto Sans SC", sans-serif;
+}
+
+*:not(.material-symbols-outlined) {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  background-color: var(--color-background-light);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.glass-nav {
+  background: rgba(56, 189, 248, 0.85); /* sky-400 */
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .glass-nav {
+  background: rgba(56, 189, 248, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Override utility classes for better contrast with white text */
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+.bg-slate-50, .bg-slate-100, .bg-slate-200, .bg-slate-300, .bg-slate-400, .bg-sky-50, .bg-sky-100, .bg-green-50, .bg-green-100, .bg-amber-50, .bg-amber-100, .bg-blue-50, .bg-blue-100, .bg-orange-50, .bg-orange-100 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.bg-slate-900, .bg-slate-800, .bg-slate-700, .bg-slate-600, .bg-slate-500 {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+.border-slate-100, .border-slate-200, .border-slate-800, .border-slate-700 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.bg-background-light, .bg-background-dark {
+  background-color: var(--color-background-light) !important;
+}
+
+/* Force text colors to white/translucent white */
+.text-slate-900, .text-slate-800, .text-slate-700, .text-slate-200, .text-slate-100 {
+  color: #ffffff !important;
+}
+.text-slate-600, .text-slate-500, .text-slate-400, .text-slate-300 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.text-sky-600, .text-sky-700, .text-sky-800, .text-sky-900 {
+  color: #ffffff !important;
+}
+.text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900 {
+  color: #ffffff !important;
+}
+.text-green-600, .text-green-700, .text-green-800, .text-green-900, .text-green-500, .text-green-400 {
+  color: #ffffff !important;
+}
+.text-amber-600, .text-amber-700, .text-amber-800, .text-amber-900, .text-amber-500, .text-amber-400 {
+  color: #ffffff !important;
+}
+.text-yellow-600, .text-yellow-700, .text-yellow-800, .text-yellow-900, .text-yellow-500, .text-yellow-400 {
+  color: #ffffff !important;
+}
+.text-orange-600, .text-orange-700, .text-orange-800, .text-orange-900, .text-orange-500, .text-orange-400 {
+  color: #ffffff !important;
+}
+.text-primary {
+  color: #ffffff !important;
+}
