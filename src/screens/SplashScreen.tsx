@@ -13,7 +13,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
   }, []);
 
   return (
-    <div className="relative flex h-full min-h-screen w-full flex-col items-center justify-center bg-gradient-to-br from-sky-400 to-sky-600 overflow-hidden">
+    <div className="relative flex h-full min-h-screen w-full flex-col items-center justify-center bg-gradient-to-br from-sky-900 to-sky-950 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-white/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -43,7 +43,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         <button 
           onClick={onFinish}
           className={clsx(
-            "group relative overflow-hidden px-10 py-4 bg-white text-sky-600 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
+            "group relative overflow-hidden px-10 py-4 bg-white text-sky-900 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
             mounted ? "translate-y-0 opacity-100 delay-700" : "translate-y-8 opacity-0"
           )}
         >

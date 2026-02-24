@@ -22,7 +22,7 @@ export default function BottomNav({ activeTab, onChangeTab }: BottomNavProps) {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pb-safe pt-2 z-50">
+    <nav className="fixed bottom-0 left-0 w-full glass-nav pb-safe pt-2 z-50">
       <div className="flex justify-around items-end px-2 pb-2">
         <button
           onClick={() => handleTabClick('home')}

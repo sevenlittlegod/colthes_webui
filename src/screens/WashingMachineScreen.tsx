@@ -3,7 +3,7 @@ import React from 'react';
 export default function WashingMachineScreen({ onBack }: { onBack: () => void }) {
   return (
     <>
-      <div className="flex items-center justify-between p-4 pb-2 bg-surface-light dark:bg-surface-dark backdrop-blur-md sticky top-0 z-10">
+      <div className="flex items-center justify-between p-4 pb-2 glass-nav sticky top-0 z-10">
         <button onClick={onBack} className="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
           <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>arrow_back</span>
         </button>
@@ -56,7 +56,7 @@ export default function WashingMachineScreen({ onBack }: { onBack: () => void })
         </div>
 
         <div className="w-full h-24 relative overflow-hidden my-2">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-surface-dark dark:via-transparent dark:to-surface-dark z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent z-10"></div>
           <div className="w-full h-full opacity-30 flex items-center justify-center">
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 320">
               <path d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#137fec" fillOpacity="0.3"></path>
@@ -89,7 +89,7 @@ export default function WashingMachineScreen({ onBack }: { onBack: () => void })
           </div>
         </div>
 
-        <div className="bg-white dark:bg-surface-dark rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.03)] dark:shadow-none border-t border-slate-100 dark:border-slate-800 p-6">
+        <div className="bg-white/5 dark:bg-white/5 rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.03)] dark:shadow-none border-t border-slate-100 dark:border-slate-800 p-6">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-slate-900 dark:text-white text-lg font-bold">预约任务</h3>
             <button className="text-primary text-sm font-medium hover:text-primary/80">查看全部</button>

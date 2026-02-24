@@ -3,7 +3,7 @@ import React from 'react';
 export default function WeatherScreen({ onBack }: { onBack?: () => void }) {
   return (
     <main className="flex-1 overflow-y-auto pb-24 selection:bg-primary/20">
-      <header className="flex items-center justify-between p-4 pb-2 sticky top-0 z-20 bg-white dark:bg-slate-900 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+      <header className="flex items-center justify-between p-4 pb-2 sticky top-0 z-20 glass-nav border-b border-slate-100 dark:border-slate-800">
         <button 
           onClick={onBack}
           className="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"

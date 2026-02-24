@@ -67,7 +67,7 @@ export default function MonitoringScreen({ onBack, onOpenWardrobe }: { onBack?: 
 
   return (
     <main className="flex-1 overflow-y-auto pb-24">
-      <header className="sticky top-0 z-10 bg-white dark:bg-slate-900 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-10 glass-nav px-4 py-3 flex items-center justify-between">
         <button 
           onClick={onBack}
           className="text-slate-900 dark:text-slate-100 p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"

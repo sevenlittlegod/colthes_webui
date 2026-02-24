@@ -2,11 +2,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0284c7; /* sky-600 */
-  --color-background-light: #38bdf8; /* sky-400 */
-  --color-background-dark: #38bdf8;
-  --color-surface-light: rgba(255, 255, 255, 0.2);
-  --color-surface-dark: rgba(255, 255, 255, 0.2);
+  --color-primary: #38bdf8; /* sky-400 */
+  --color-background-light: #0f172a; /* slate-900 */
+  --color-background-dark: #0f172a;
+  --color-surface-light: rgba(255, 255, 255, 0.08);
+  --color-surface-dark: rgba(255, 255, 255, 0.08);
   --font-display: "Noto Sans SC", sans-serif;
   --font-sans: "Noto Sans SC", sans-serif;
 }
@@ -44,36 +44,45 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .dark .glass-card {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .glass-nav {
-  background: rgba(56, 189, 248, 0.85); /* sky-400 */
+  background: rgba(15, 23, 42, 0.85); /* slate-900 */
   backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .dark .glass-nav {
-  background: rgba(56, 189, 248, 0.85);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(15, 23, 42, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Override utility classes for better contrast with white text */
 .bg-white {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
-.bg-slate-50, .bg-slate-100, .bg-slate-200, .bg-slate-300, .bg-slate-400, .bg-sky-50, .bg-sky-100, .bg-green-50, .bg-green-100, .bg-amber-50, .bg-amber-100, .bg-blue-50, .bg-blue-100, .bg-orange-50, .bg-orange-100 {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+.bg-slate-50, .bg-slate-100, .bg-slate-200, .bg-slate-300, .bg-slate-400 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.bg-sky-50, .bg-sky-100, .bg-blue-50, .bg-blue-100 {
+  background-color: rgba(56, 189, 248, 0.15) !important; /* sky-400 tinted */
+}
+.bg-green-50, .bg-green-100 {
+  background-color: rgba(74, 222, 128, 0.15) !important; /* green-400 tinted */
+}
+.bg-amber-50, .bg-amber-100, .bg-orange-50, .bg-orange-100, .bg-yellow-50, .bg-yellow-100 {
+  background-color: rgba(251, 146, 60, 0.15) !important; /* orange-400 tinted */
 }
 .bg-slate-900, .bg-slate-800, .bg-slate-700, .bg-slate-600, .bg-slate-500 {
-  background-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 .border-slate-100, .border-slate-200, .border-slate-800, .border-slate-700 {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 .bg-background-light, .bg-background-dark {
   background-color: var(--color-background-light) !important;
@@ -84,7 +93,7 @@ body {
   color: #ffffff !important;
 }
 .text-slate-600, .text-slate-500, .text-slate-400, .text-slate-300 {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
 }
 .text-sky-600, .text-sky-700, .text-sky-800, .text-sky-900 {
   color: #ffffff !important;

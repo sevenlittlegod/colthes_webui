@@ -3,7 +3,7 @@ import React from 'react';
 export default function WardrobeScreen({ onBack }: { onBack?: () => void }) {
   return (
     <main className="flex-1 overflow-y-auto pb-24">
-      <div className="flex items-center bg-white dark:bg-slate-900 backdrop-blur-md p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+      <div className="flex items-center glass-nav p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
         <div 
           onClick={onBack}
           className="text-slate-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer"

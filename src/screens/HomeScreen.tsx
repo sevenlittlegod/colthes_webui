@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { clsx } from 'clsx';
 
 export default function HomeScreen({ onOpenWashingMachine, onOpenWeather }: { onOpenWashingMachine: () => void, onOpenWeather: () => void }) {
+  const [autoMode, setAutoMode] = useState(true);
+  const [rackStatus, setRackStatus] = useState<'expanded' | 'retracted'>('expanded');
+  const [windEnabled, setWindEnabled] = useState(false);
+  const [uvEnabled, setUvEnabled] = useState(false);
+
   return (
     <main className="flex-1 overflow-y-auto pb-24">
-      <header className="flex items-center justify-between px-6 pt-10 pb-4 bg-white dark:bg-slate-900 backdrop-blur-md sticky top-0 z-10 shadow-sm border-b border-slate-100 dark:border-slate-800">
+      <header className="flex items-center justify-between px-6 pt-10 pb-4 glass-nav sticky top-0 z-10 shadow-sm border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-3">
           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-sky-50 dark:bg-primary/10 text-primary">
             <span className="material-symbols-outlined text-2xl">local_laundry_service</span>
@@ -63,37 +69,125 @@ export default function HomeScreen({ onOpenWashingMachine, onOpenWeather }: { on
           <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">晾衣架状态</h3>
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-slate-500 dark:text-slate-400">自动模式</span>
-            <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-              <span className="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
+            <button 
+              onClick={() => setAutoMode(!autoMode)}
+              className={clsx(
+                "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                autoMode ? "bg-primary" : "bg-slate-300 dark:bg-slate-600"
+              )}
+            >
+              <span className={clsx(
+                "inline-block h-4 w-4 transform rounded-full bg-white transition-transform",
+                autoMode ? "translate-x-6" : "translate-x-1"
+              )}></span>
             </button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-2 p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-3 min-h-[160px]">
-            <div className="w-16 h-16 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-500 animate-pulse">
-              <span className="material-symbols-outlined text-3xl">unfold_more</span>
+            <div className={clsx(
+              "w-16 h-16 rounded-full flex items-center justify-center transition-colors",
+              rackStatus === 'expanded' 
+                ? "bg-green-50 dark:bg-green-900/20 text-green-500 animate-pulse" 
+                : "bg-slate-100 dark:bg-slate-800 text-slate-400"
+            )}>
+              <span className="material-symbols-outlined text-3xl">
+                {rackStatus === 'expanded' ? 'unfold_more' : 'unfold_less'}
+              </span>
             </div>
             <div className="text-center">
-              <p className="text-base font-bold text-slate-900 dark:text-slate-100">已展开</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">当前正在晾晒</p>
+              <p className="text-base font-bold text-slate-900 dark:text-slate-100">
+                {rackStatus === 'expanded' ? '已展开' : '已收回'}
+              </p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                {rackStatus === 'expanded' ? '当前正在晾晒' : '空闲中'}
+              </p>
             </div>
           </div>
           <div className="col-span-2 grid grid-cols-2 gap-3">
-            <button className="group p-3 h-24 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-primary transition-all">
-              <span className="material-symbols-outlined text-2xl text-slate-400 group-hover:text-primary">arrow_upward</span>
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">收回</span>
+            <button 
+              onClick={() => setRackStatus('retracted')}
+              disabled={autoMode}
+              className={clsx(
+                "group p-3 h-24 rounded-xl border shadow-sm flex flex-col items-center justify-center gap-2 transition-all",
+                rackStatus === 'retracted' 
+                  ? "bg-primary/10 border-primary text-primary" 
+                  : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-primary",
+                autoMode && "opacity-50 cursor-not-allowed hover:border-slate-100 dark:hover:border-slate-800"
+              )}
+            >
+              <span className={clsx(
+                "material-symbols-outlined text-2xl transition-colors",
+                rackStatus === 'retracted' ? "text-primary" : "text-slate-400 group-hover:text-primary",
+                autoMode && "group-hover:text-slate-400"
+              )}>arrow_upward</span>
+              <span className={clsx(
+                "text-xs font-medium",
+                rackStatus === 'retracted' ? "text-primary" : "text-slate-600 dark:text-slate-300"
+              )}>收回</span>
             </button>
-            <button className="group p-3 h-24 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-primary transition-all">
-              <span className="material-symbols-outlined text-2xl text-slate-400 group-hover:text-primary">arrow_downward</span>
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">展开</span>
+            <button 
+              onClick={() => setRackStatus('expanded')}
+              disabled={autoMode}
+              className={clsx(
+                "group p-3 h-24 rounded-xl border shadow-sm flex flex-col items-center justify-center gap-2 transition-all",
+                rackStatus === 'expanded' 
+                  ? "bg-primary/10 border-primary text-primary" 
+                  : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-primary",
+                autoMode && "opacity-50 cursor-not-allowed hover:border-slate-100 dark:hover:border-slate-800"
+              )}
+            >
+              <span className={clsx(
+                "material-symbols-outlined text-2xl transition-colors",
+                rackStatus === 'expanded' ? "text-primary" : "text-slate-400 group-hover:text-primary",
+                autoMode && "group-hover:text-slate-400"
+              )}>arrow_downward</span>
+              <span className={clsx(
+                "text-xs font-medium",
+                rackStatus === 'expanded' ? "text-primary" : "text-slate-600 dark:text-slate-300"
+              )}>展开</span>
             </button>
-            <button className="group p-3 h-24 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-primary transition-all">
-              <span className="material-symbols-outlined text-2xl text-slate-400 group-hover:text-primary">wind_power</span>
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">风干</span>
+            <button 
+              onClick={() => setWindEnabled(!windEnabled)}
+              disabled={autoMode}
+              className={clsx(
+                "group p-3 h-24 rounded-xl border shadow-sm flex flex-col items-center justify-center gap-2 transition-all",
+                windEnabled 
+                  ? "bg-primary/10 border-primary text-primary" 
+                  : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-primary",
+                autoMode && "opacity-50 cursor-not-allowed hover:border-slate-100 dark:hover:border-slate-800"
+              )}
+            >
+              <span className={clsx(
+                "material-symbols-outlined text-2xl transition-colors",
+                windEnabled ? "text-primary" : "text-slate-400 group-hover:text-primary",
+                autoMode && "group-hover:text-slate-400"
+              )}>wind_power</span>
+              <span className={clsx(
+                "text-xs font-medium",
+                windEnabled ? "text-primary" : "text-slate-600 dark:text-slate-300"
+              )}>风干</span>
             </button>
-            <button className="group p-3 h-24 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-primary transition-all">
-              <span className="material-symbols-outlined text-2xl text-slate-400 group-hover:text-primary">light_mode</span>
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">紫外线</span>
+            <button 
+              onClick={() => setUvEnabled(!uvEnabled)}
+              disabled={autoMode}
+              className={clsx(
+                "group p-3 h-24 rounded-xl border shadow-sm flex flex-col items-center justify-center gap-2 transition-all",
+                uvEnabled 
+                  ? "bg-primary/10 border-primary text-primary" 
+                  : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-primary",
+                autoMode && "opacity-50 cursor-not-allowed hover:border-slate-100 dark:hover:border-slate-800"
+              )}
+            >
+              <span className={clsx(
+                "material-symbols-outlined text-2xl transition-colors",
+                uvEnabled ? "text-primary" : "text-slate-400 group-hover:text-primary",
+                autoMode && "group-hover:text-slate-400"
+              )}>light_mode</span>
+              <span className={clsx(
+                "text-xs font-medium",
+                uvEnabled ? "text-primary" : "text-slate-600 dark:text-slate-300"
+              )}>紫外线</span>
             </button>
           </div>
         </div>
