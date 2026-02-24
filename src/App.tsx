@@ -10,8 +10,10 @@ import MonitoringScreen from './screens/MonitoringScreen';
 import WardrobeScreen from './screens/WardrobeScreen';
 import WeatherScreen from './screens/WeatherScreen';
 import WashingMachineScreen from './screens/WashingMachineScreen';
+import SplashScreen from './screens/SplashScreen';
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [showWashingMachine, setShowWashingMachine] = useState(false);
 
@@ -22,6 +24,14 @@ export default function App() {
       mainElement.scrollTo(0, 0);
     }
   }, [activeTab, showWashingMachine]);
+
+  if (showSplash) {
+    return (
+      <div className="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-surface-light dark:bg-surface-dark shadow-xl overflow-hidden">
+        <SplashScreen onFinish={() => setShowSplash(false)} />
+      </div>
+    );
+  }
 
   if (showWashingMachine) {
     return (
