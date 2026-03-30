@@ -25,7 +25,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       )}>
         <div className="relative mb-8 mt-4">
           <div className="absolute inset-0 bg-white/30 rounded-3xl blur-xl transform scale-110"></div>
-          <div className="relative w-32 h-32 bg-white rounded-3xl shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500">
+          <div className="relative w-32 h-32 bg-[#ffffff] rounded-3xl shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-sky-500">
               <rect x="3" y="2" width="18" height="5" rx="1.5" fill="currentColor" fillOpacity="0.15" />
               <line x1="8" y1="4.5" x2="16" y2="4.5" stroke="currentColor" strokeWidth="1.5" />
@@ -52,7 +52,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         <button 
           onClick={onFinish}
           className={clsx(
-            "group relative overflow-hidden px-10 py-4 bg-white text-sky-900 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
+            "group relative overflow-hidden px-10 py-4 bg-[#ffffff] text-sky-900 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
             mounted ? "translate-y-0 opacity-100 delay-700" : "translate-y-8 opacity-0"
           )}
         >

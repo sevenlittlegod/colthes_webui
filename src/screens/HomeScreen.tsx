@@ -12,7 +12,16 @@ export default function HomeScreen({ onOpenWashingMachine, onOpenWeather }: { on
       <header className="flex items-center justify-between px-6 pt-10 pb-4 glass-nav sticky top-0 z-10 shadow-sm border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-3">
           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-sky-50 dark:bg-primary/10 text-primary">
-            <span className="material-symbols-outlined text-2xl">local_laundry_service</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+              <rect x="3" y="2" width="18" height="5" rx="1.5" fill="currentColor" fillOpacity="0.15" />
+              <line x1="8" y1="4.5" x2="16" y2="4.5" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M6 7 l3 5 m0 -5 l-3 5" strokeWidth="1.2" />
+              <path d="M18 7 l-3 5 m0 -5 l3 5" strokeWidth="1.2" />
+              <line x1="2" y1="12" x2="22" y2="12" strokeWidth="2" />
+              <line x1="4" y1="15" x2="20" y2="15" strokeWidth="1.5" />
+              <path d="M8 15 v1 l-2 1.5 m2 -1.5 l2 1.5" strokeWidth="1.2" />
+              <path d="M16 15 v1 l-2 1.5 m2 -1.5 l2 1.5" strokeWidth="1.2" />
+            </svg>
           </div>
           <div>
             <h1 className="text-xl font-bold leading-tight" style={{ fontFamily: "'Noto Sans SC', sans-serif" }}>衣晾家丞</h1>
@@ -77,7 +86,7 @@ export default function HomeScreen({ onOpenWashingMachine, onOpenWeather }: { on
               )}
             >
               <span className={clsx(
-                "inline-block h-4 w-4 transform rounded-full bg-white transition-transform",
+                "inline-block h-4 w-4 transform rounded-full bg-[#ffffff] transition-transform",
                 autoMode ? "translate-x-6" : "translate-x-1"
               )}></span>
             </button>
