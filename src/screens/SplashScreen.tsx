@@ -52,7 +52,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         <button 
           onClick={onFinish}
           className={clsx(
-            "group relative overflow-hidden px-10 py-4 bg-[#ffffff] text-sky-900 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
+            "group relative overflow-hidden px-10 py-4 bg-[#ffffff] text-[#0c4a6e] rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.3)] transition-all duration-300 transform active:scale-95",
             mounted ? "translate-y-0 opacity-100 delay-700" : "translate-y-8 opacity-0"
           )}
         >
