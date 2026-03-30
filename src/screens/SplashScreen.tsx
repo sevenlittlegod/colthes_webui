@@ -23,10 +23,19 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         "flex flex-col items-center z-10 transition-all duration-1000 transform",
         mounted ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
       )}>
-        <div className="relative mb-8">
+        <div className="relative mb-8 mt-4">
           <div className="absolute inset-0 bg-white/30 rounded-3xl blur-xl transform scale-110"></div>
-          <div className="relative w-28 h-28 bg-white rounded-3xl shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500">
-            <span className="material-symbols-outlined text-sky-500 text-6xl" style={{ fontVariationSettings: "'FILL' 1" }}>local_laundry_service</span>
+          <div className="relative w-32 h-32 bg-white rounded-3xl shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-sky-500">
+              <rect x="3" y="2" width="18" height="5" rx="1.5" fill="currentColor" fillOpacity="0.15" />
+              <line x1="8" y1="4.5" x2="16" y2="4.5" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M6 7 l3 5 m0 -5 l-3 5" strokeWidth="1.2" />
+              <path d="M18 7 l-3 5 m0 -5 l3 5" strokeWidth="1.2" />
+              <line x1="2" y1="12" x2="22" y2="12" strokeWidth="2" />
+              <line x1="4" y1="15" x2="20" y2="15" strokeWidth="1.5" />
+              <path d="M8 15 v1 l-2 1.5 m2 -1.5 l2 1.5" strokeWidth="1.2" />
+              <path d="M16 15 v1 l-2 1.5 m2 -1.5 l2 1.5" strokeWidth="1.2" />
+            </svg>
           </div>
           {/* Decorative bubbles */}
           <div className={clsx("absolute -top-4 -right-4 w-8 h-8 bg-white/80 rounded-full backdrop-blur-sm flex items-center justify-center shadow-lg transition-all duration-700 delay-500", mounted ? "scale-100 opacity-100" : "scale-0 opacity-0")}>
