@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-export type TabType = 'home' | 'monitor' | 'wardrobe' | 'weather' | 'profile';
+export type TabType = 'home' | 'monitor' | 'wardrobe' | 'weather' | 'profile' | 'ai';
 
 interface BottomNavProps {
   activeTab: TabType;
@@ -45,8 +45,14 @@ export default function BottomNav({ activeTab, onChangeTab }: BottomNavProps) {
         </button>
 
         <div className="relative -top-5">
-          <button className="flex items-center justify-center w-14 h-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:scale-105 transition-transform">
-            <span className="material-symbols-outlined text-[28px]">add</span>
+          <button 
+            onClick={() => handleTabClick('ai')}
+            className={clsx(
+              "flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg transition-all transform hover:scale-105 active:scale-95",
+              activeTab === 'ai' ? "bg-sky-400 shadow-sky-400/40" : "bg-primary shadow-primary/40"
+            )}
+          >
+            <span className="material-symbols-outlined text-[28px]" style={activeTab === 'ai' ? { fontVariationSettings: "'FILL' 1" } : {}}>graphic_eq</span>
           </button>
         </div>
 

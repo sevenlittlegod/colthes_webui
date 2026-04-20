@@ -11,6 +11,7 @@ import WardrobeScreen from './screens/WardrobeScreen';
 import WeatherScreen from './screens/WeatherScreen';
 import WashingMachineScreen from './screens/WashingMachineScreen';
 import SplashScreen from './screens/SplashScreen';
+import AIScreen from './screens/AIScreen';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -47,6 +48,7 @@ export default function App() {
       {activeTab === 'monitor' && <MonitoringScreen onBack={() => setActiveTab('home')} onOpenWardrobe={() => setActiveTab('wardrobe')} />}
       {activeTab === 'wardrobe' && <WardrobeScreen onBack={() => setActiveTab('home')} />}
       {activeTab === 'weather' && <WeatherScreen onBack={() => setActiveTab('home')} />}
+      {activeTab === 'ai' && <AIScreen onBack={() => setActiveTab('home')} />}
       {activeTab === 'profile' && (
         <main className="flex-1 flex items-center justify-center">
           <p className="text-slate-500">个人中心 (Profile)</p>
