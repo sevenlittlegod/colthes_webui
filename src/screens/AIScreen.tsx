@@ -16,8 +16,8 @@ export default function AIScreen({ onBack }: AIScreenProps) {
   ];
 
   return (
-    <main className="flex-1 overflow-y-auto flex flex-col bg-slate-900 scrollbar-hide pb-32">
-      <header className="flex items-center justify-between p-4 glass-nav sticky top-0 z-20">
+    <div className="flex-1 flex flex-col h-full bg-slate-900 overflow-hidden">
+      <header className="flex items-center justify-between p-4 glass-nav z-20 border-b border-white/10 shrink-0">
         <button 
           onClick={onBack}
           className="flex size-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
@@ -27,8 +27,9 @@ export default function AIScreen({ onBack }: AIScreenProps) {
         <h2 className="text-lg font-bold text-white flex-1 text-center pr-10">AI 助手 - 小丞</h2>
       </header>
 
-      <div className="flex-1 flex flex-col items-center justify-start pt-12 px-6 relative">
-        {/* Interactive Floating Product Icon Orb */}
+      <main className="flex-1 overflow-y-auto scrollbar-hide">
+        <div className="flex flex-col items-center justify-start pt-12 px-6 pb-32 relative">
+          {/* Interactive Floating Product Icon Orb */}
         <motion.button 
           onClick={() => setIsListening(!isListening)}
           initial={{ scale: 0.8, opacity: 0 }}
@@ -109,5 +110,6 @@ export default function AIScreen({ onBack }: AIScreenProps) {
         </div>
       </div>
     </main>
-  );
+  </div>
+);
 }
